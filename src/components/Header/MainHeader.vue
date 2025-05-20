@@ -13,23 +13,10 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { Button } from 'primevue'
 import SearchInput from '@/components/Header/SearchInput.vue'
 import IngredientCombo from '@/components/Header/IngredientCombo.vue'
 import FavoritesSelector from '@/components/Header/FavoritesSelector.vue'
-import { useRouter, useRoute } from 'vue-router'
 import PrimaLogo from '@/assets/images/PrimaLogo.vue'
-
-const router = useRouter()
-const route = useRoute()
-
-// Botón de atrás solo visible en la vista de detalle
-const showBackButton = computed(() => route.name === 'RecipeDetail')
-
-const goBack = () => {
-  router.go(-1) // Navegar a la página anterior en el historial
-}
 </script>
 
 <style scoped>

@@ -18,7 +18,7 @@ export const useRecipesStore = defineStore('recipes', () => {
   const recipes = ref<Recipe[]>([])
   const categories = ref([])
   const areas = ref([])
-  const ingredients = ref<Ingredient[]>([])
+  const ingredients = ref<ServerIngredient[]>([])
   const selectedRecipe = ref<Recipe | null>(null)
   const selectedIngredient = ref<string>()
   const searchQuery = ref<string>('')
@@ -43,12 +43,9 @@ export const useRecipesStore = defineStore('recipes', () => {
           recipes.value = []
           return
         }
-        recipes.value = data.map((meal: ServerMeal) => ({
-          id: meal.idMeal,
-          name: meal.strMeal,
-          image: meal.strMealThumb,
-        }))
-        getDetails()
+
+        selectedRecipe.value = convertDetailsToRecipe(data) || null
+        recipes.value = data.map((meal: ServerMeal) => (convertDetailsToRecipe(meal)))
         router.push({ name: 'RecipeListBySearch', params: { search: searchQuery.value } })
       })
     } catch (error) {
@@ -103,6 +100,7 @@ export const useRecipesStore = defineStore('recipes', () => {
 
   const getIngredients = async () => {
     isLoadingIngredients.value = true
+    ingredients.value = []
     try {
       await getMealIngredients().then((data) => {
         ingredients.value = (data || []).sort((a: ServerIngredient, b: ServerIngredient) =>
@@ -156,6 +154,7 @@ export const useRecipesStore = defineStore('recipes', () => {
           Object.assign(recipe, convertDetailsToRecipe(details))
         }
       } catch (error) {
+        console.error(`Error fetching recipe details for recipe with id ${recipe.id}:`, error)
         toast.add({
           severity: 'error',
           summary: 'Error',

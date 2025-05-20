@@ -1,13 +1,6 @@
 <template>
-  <Select
-    :options="ingredients"
-    v-model="selectedIngredient"
-    optionLabel="strIngredient"
-    optionValue="strIngredient"
-    placeholder="Select an ingredient"
-    class="w-full md:w-56"
-    filter
-  />
+  <Select :options="ingredients" v-model="selectedIngredient" optionLabel="strIngredient" optionValue="strIngredient"
+    placeholder="Select an ingredient" class="w-full md:w-56" filter />
 </template>
 
 <script setup lang="ts">
