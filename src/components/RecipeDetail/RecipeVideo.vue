@@ -1,7 +1,7 @@
 <template>
   <Skeleton v-if="!videoLoaded" width="100%" height="315px"></Skeleton>
-  <iframe v-show="videoLoaded" :src="videoUrl" width="100%" height="315" frameborder="0" allowfullscreen
-    class="youtube rounded-lg" @load="videoLoaded = true"></iframe>
+  <iframe v-show="videoLoaded" :src="videoUrl" width="100%" height="315" allowfullscreen class="youtube rounded-lg"
+    @load="videoLoaded = true" title="Recipe Video"></iframe>
 </template>
 
 <script setup lang="ts">

@@ -67,7 +67,7 @@ describe('RecipesDatatable.vue', () => {
           area: 'Tunisian',
           tags: [],
           youtube: 'https://www.youtube.com/watch?v=IqXEZUk4hWI',
-          source: 'http://allrecipes.co.uk/recipe/40152/cashew-ghoriba-biscuits.aspx',
+          source: 'https://allrecipes.co.uk/recipe/40152/cashew-ghoriba-biscuits.aspx',
           ingredients: [
             { ingredient: 'Cashew Nuts', measure: '250g' },
             { ingredient: 'Icing Sugar', measure: '100g' },
