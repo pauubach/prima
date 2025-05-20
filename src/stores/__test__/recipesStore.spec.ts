@@ -248,7 +248,6 @@ describe('Recipes Store', () => {
     expect(store.ingredients.length).toBe(0)
     await new Promise((resolve) => setTimeout(resolve, 200))
     expect(store.ingredients.length).toBeGreaterThan(0)
-    console.log(store.ingredients)
     expect(store.ingredients[0].strIngredient).toBe('Beef')
   })
 
@@ -276,7 +275,6 @@ describe('Recipes Store', () => {
     expect(store.showingFavorites).toBe(false)
     store.showingFavorites = true
     await new Promise((resolve) => setTimeout(resolve, 200))
-    console.log(store.searchQuery, store.selectedIngredient, store.showingFavorites)
     expect(store.searchQuery).toBe('')
     expect(store.selectedIngredient).toBeUndefined()
     expect(store.showingFavorites).toBe(true)
@@ -292,7 +290,6 @@ describe('Recipes Store', () => {
     expect(store.showingFavorites).toBe(false)
     store.showingFavorites = true
     await new Promise((resolve) => setTimeout(resolve, 200))
-    console.log(store.searchQuery, store.selectedIngredient, store.showingFavorites)
     expect(store.searchQuery).toBe('')
     expect(store.selectedIngredient).toBeUndefined()
     expect(store.showingFavorites).toBe(true)
