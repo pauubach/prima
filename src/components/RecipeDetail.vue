@@ -31,7 +31,8 @@
             <RecipeVideo :url="selectedRecipe.youtube" />
           </div>
         </div>
-        <div class="flex-shrink-0 flex flex-col gap-4 order-first sm:order-none" style="width: 12rem">
+        <div v-if="selectedRecipe.image" class="flex-shrink-0 flex flex-col gap-4 order-first sm:order-none"
+          style="width: 12rem">
           <div class="flex w-full md:justify-end">
             <img :src="`${selectedRecipe.image}/medium`" alt="Recipe Image"
               class="recipe-image w-48 object-contain mb-4 block" loading="lazy" decoding="async" />
