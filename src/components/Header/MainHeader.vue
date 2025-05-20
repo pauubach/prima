@@ -1,5 +1,5 @@
 <template>
-  <header class="!block md:!flex !bg-white mt-4 mx-4 md:mx-8 !px-0">
+  <header class="!block md:!flex !bg-white dark:!bg-[rgb(18,18,18)] mt-4 mx-4 md:mx-8 !px-0">
     <div class="flex items-center">
       <PrimaLogo class="logo-prima" />
       <h1 class="mb-1 text-2xl font-semibold inline-block align-middle text-yellow-500">Cook</h1>
